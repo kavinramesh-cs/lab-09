@@ -10,11 +10,17 @@
 
 def two_sum(nums, target):
     # Outline (write your plan here first):
-    #   ...
-    # TODO: return the indices [i, j] (i < j) of the two numbers in `nums` that add up
-    #   to `target`. Assume there is exactly one answer.
-    pass
-
+    #   Restate:find the two position whose values add up to target.
+    #   Example: [2, 7, 11, 15], target 9 -> at 2, I need 7 (not seen yet), so
+    #     remember 2. At 7, I need 2, which I saw at index 0 -> [0, 1].
+    #   Brute force: try every pair, O(n^2).
+    #   Faster: keep a dict of value -> index for numbers seen so far. For each
+    #     number, look up (target - number). One pass, O(n).
+    seen = {}
+    for i,n in  enumerate(nums):
+        need = target -n
+        if need in seen:
+            return[]
 
 def max_profit(prices):
     # Outline:
